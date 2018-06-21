@@ -1,0 +1,9 @@
+
+public class MegaBytesConverter {
+	public static void printMegaBytesConverter(int kiloBytes) {
+		if (kiloBytes < 0) {
+			System.out.println("Invalid Value");
+		}
+		int megaBytes = kiloBytes % 1024;
+	}
+}
