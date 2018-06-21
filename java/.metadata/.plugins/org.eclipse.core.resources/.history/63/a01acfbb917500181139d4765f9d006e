@@ -1,0 +1,21 @@
+
+public class DecimalComparator {
+	
+	public static void main(String[] args) {
+		System.out.println(areEqualByThreeDecimalPlaces(3.1255, 3.12456));
+	}
+	
+	
+	public static boolean areEqualByThreeDecimalPlaces (double d1, double d2){
+		double decimalD1 = d1 *1000;
+		double decimalD2 = d2 *1000;
+		
+		System.out.println(decimalD1);
+		System.out.println(decimalD2);
+		
+		if (decimalD1 == decimalD2) {
+			return true;
+		}
+		return false;
+	}
+}

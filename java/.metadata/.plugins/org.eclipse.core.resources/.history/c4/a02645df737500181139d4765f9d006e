@@ -1,0 +1,34 @@
+
+public class Main {
+	public int calculateHighScorePosition(int playerScore) {
+		if (playerScore > 1000) {
+			return 1;
+		}
+		
+		if (playerScore < 1000 && playerScore > 500) {
+			return 2;
+		}
+		
+		if (playerScore < 500 && playerScore > 100) {
+			return 3;
+		}
+		return 4;
+	}
+	
+	
+	public void main(String[] args) {
+		int highScorePosition = calculateHighScorePosition(1500);
+		displayHighScorePosition("Rayan", highScorePosition);
+		highScorePosition = calculateHighScorePosition(900);
+		displayHighScorePosition("Benywolf42", highScorePosition);
+		highScorePosition = calculateHighScorePosition(400);
+		displayHighScorePosition("Gustavo", highScorePosition);
+	}
+	
+	public void displayHighScorePosition(String playerName, int position) {
+		System.out.println(playerName + " managed to get into position " + position + " on the high score table.");
+	}
+	
+	
+
+}
