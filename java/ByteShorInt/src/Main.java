@@ -6,8 +6,10 @@ public class Main {
 		byte myByteValue = 10;
 		short myShortValue = 32767;
 		
-		byte div = (byte) (myByteValue/2); // (byte) trata o resultado da operação (myByteValue/2)
+		
+		byte div = (byte) (myByteValue/2); 
+		//(byte) trata o resultado da operação (myByteValue/2)
 		
 	}
-
+ 
 }
