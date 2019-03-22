@@ -11,7 +11,8 @@ namespace dotNet
         static void Main(string[] args)
         {
             // calculaNotas(250.65);
-            calculoEntreDatas("29/02/2016", "01/03/2017");
+            // calculoEntreDatas("29/02/2016");
+            maiorNumero(321.05);
         }
 
         // QUESTAO 1
@@ -40,22 +41,16 @@ namespace dotNet
         }
 
         // QUESTAO 2
-        public static void calculoEntreDatas(string dataInicial, string dataFinal)
+        public static void calculoEntreDatas(string dataInicial)
         {
             Boolean isBissextoInicial = false;
-            Boolean isBissextoFinal = false;
 
             Match matchInicial      = Regex.Match(dataInicial, @"[0-3][0-9]/[0-1][0-9]/[0-9][0-9][0-9][0-9]");
-            Match matchFinal        = Regex.Match(dataFinal, @"[0-3][0-9]/[0-1][0-9]/[0-9][0-9][0-9][0-9]");
-            if (matchInicial.Success & matchFinal.Success)
+            if (matchInicial.Success)
             {
                 int diaInicial = Convert.ToInt32(dataInicial.Substring(0,2));
                 int mesInicial = Convert.ToInt32(dataInicial.Substring(3,2));
                 int anoInicial = Convert.ToInt32(dataInicial.Substring(6,4));
-
-                int diaFinal = Convert.ToInt32(dataFinal.Substring(0,2));
-                int mesFinal = Convert.ToInt32(dataFinal.Substring(3,2));
-                int anoFinal = Convert.ToInt32(dataFinal.Substring(6,4));
 
                 // verificando se as datas informadas sao validas
                 if (anoInicial%4 == 0 & anoInicial%100 != 0) {
@@ -71,22 +66,36 @@ namespace dotNet
                     }
                 }
 
-                if (anoFinal%4 == 0 & anoFinal%100 != 0) {
-                    isBissextoFinal = true;
-                } else if (anoFinal%400 == 0){
-                    isBissextoFinal = true;
-                }
+                string dataAtual = Convert.ToString(DateTime.Today);
+                int diaAtual = Convert.ToInt32(dataAtual.Substring(0,2));
+                int mesAtual = Convert.ToInt32(dataAtual.Substring(3,2));
+                int anoAtual = Convert.ToInt32(dataAtual.Substring(6,4));
 
-                if (mesInicial == 2 & diaInicial > 28){
-                    if (isBissextoFinal == false & diaInicial == 29 | diaInicial > 29){
-                        Console.WriteLine("Data final inválida!");
-                        return;
-                    }
-                }
+
             }
             else
             {
                 Console.WriteLine("Data Inválida!");
+            }
+        }
+
+        // QUESTAO 3
+        public static void maiorNumero(double numero) {
+            string numeroString = Convert.ToString(numero);
+            int a, b;
+            
+            for (int i = 0; i < numeroString.Length-1; i++)
+            {
+                int j = i+1;
+                a = Convert.ToInt32(numeroString.Substring(i, 1));
+                if (numeroString.Substring(j,1) == "."){
+                    i+=2;
+                    break;
+                }
+                b = Convert.ToInt32(numeroString.Substring(j, 1));
+                Console.WriteLine(a);
+                Console.WriteLine(b);
+
             }
         }
     }
