@@ -12,7 +12,9 @@ namespace dotNet
         {
             // calculaNotas(250.65);
             // calculoEntreDatas("29/02/2016");
-            maiorNumero(321.05);
+            // maiorNumero(1,45);
+            // isAnoBissexto();
+
         }
 
         // QUESTAO 1
@@ -80,22 +82,22 @@ namespace dotNet
         }
 
         // QUESTAO 3
-        public static void maiorNumero(double numero) {
-            string numeroString = Convert.ToString(numero);
-            int a, b;
-            
-            for (int i = 0; i < numeroString.Length-1; i++)
-            {
-                int j = i+1;
-                a = Convert.ToInt32(numeroString.Substring(i, 1));
-                if (numeroString.Substring(j,1) == "."){
-                    i+=2;
-                    break;
-                }
-                b = Convert.ToInt32(numeroString.Substring(j, 1));
-                Console.WriteLine(a);
-                Console.WriteLine(b);
+        public static void maiorNumero(double n1, double n2) {
+            double maiorNum = n2 > n1 ? n2 : n1;
+            Console.WriteLine(maiorNum);
+        }
 
+        public static void isAnoBissexto() {
+            Console.WriteLine("Digite um ano a ser verificado: ");
+            int ano = Convert.ToInt32(Console.ReadLine());
+
+            if (ano % 4 == 0 & ano % 100 != 0) {
+                Console.WriteLine("O ano " + ano + " é bissexto.");
+            }
+            else if (ano % 400 == 0) {
+                Console.WriteLine("O ano " + ano + " é bissexto.");
+            } else {
+                Console.WriteLine("O ano " + ano + " não é bissexto.");
             }
         }
     }
