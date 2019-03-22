@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/dotNet.csproj"
+                "${workspaceFolder}/Ex_13-08/Ex_13-08.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
