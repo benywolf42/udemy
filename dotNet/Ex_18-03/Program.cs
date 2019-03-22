@@ -10,7 +10,8 @@ namespace dotNet
     {
         static void Main(string[] args)
         {
-            calculaNotas(250.65);
+            // calculaNotas(250.65);
+            calculoEntreDatas("29/02/2016", "01/03/2017");
         }
 
         // QUESTAO 1
@@ -39,12 +40,49 @@ namespace dotNet
         }
 
         // QUESTAO 2
-        public static void calculoEntreDatas(string data)
+        public static void calculoEntreDatas(string dataInicial, string dataFinal)
         {
-            Match match = Regex.Match(data, @"[0-3][0-9]/[0-1][0-9]/[0-9][0-9][0-9][0-9]");
-            if (match.Success)
+            Boolean isBissextoInicial = false;
+            Boolean isBissextoFinal = false;
+
+            Match matchInicial      = Regex.Match(dataInicial, @"[0-3][0-9]/[0-1][0-9]/[0-9][0-9][0-9][0-9]");
+            Match matchFinal        = Regex.Match(dataFinal, @"[0-3][0-9]/[0-1][0-9]/[0-9][0-9][0-9][0-9]");
+            if (matchInicial.Success & matchFinal.Success)
             {
-                Console.WriteLine("Funcionou!");
+                int diaInicial = Convert.ToInt32(dataInicial.Substring(0,2));
+                int mesInicial = Convert.ToInt32(dataInicial.Substring(3,2));
+                int anoInicial = Convert.ToInt32(dataInicial.Substring(6,4));
+
+                int diaFinal = Convert.ToInt32(dataFinal.Substring(0,2));
+                int mesFinal = Convert.ToInt32(dataFinal.Substring(3,2));
+                int anoFinal = Convert.ToInt32(dataFinal.Substring(6,4));
+
+                // verificando se as datas informadas sao validas
+                if (anoInicial%4 == 0 & anoInicial%100 != 0) {
+                    isBissextoInicial = true;
+                } else if (anoInicial%400 == 0){
+                    isBissextoInicial = true;
+                }
+
+                if (mesInicial == 2 & diaInicial > 28){
+                    if (isBissextoInicial == false & diaInicial == 29 | diaInicial > 29){
+                        Console.WriteLine("Data inicial inválida!");
+                        return;
+                    }
+                }
+
+                if (anoFinal%4 == 0 & anoFinal%100 != 0) {
+                    isBissextoFinal = true;
+                } else if (anoFinal%400 == 0){
+                    isBissextoFinal = true;
+                }
+
+                if (mesInicial == 2 & diaInicial > 28){
+                    if (isBissextoFinal == false & diaInicial == 29 | diaInicial > 29){
+                        Console.WriteLine("Data final inválida!");
+                        return;
+                    }
+                }
             }
             else
             {
@@ -52,8 +90,4 @@ namespace dotNet
             }
         }
     }
-}
-    }
-
-    
 }
