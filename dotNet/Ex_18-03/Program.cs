@@ -2,6 +2,7 @@
 // GUSTAVO DELGADO (SP1764489) - IFSP 2019
 
 using System;
+using System.Text.RegularExpressions;
 
 namespace dotNet
 {
@@ -38,11 +39,20 @@ namespace dotNet
         }
 
         // QUESTAO 2
-        public static void calculoEntreDatas(string data) {
-            //tratamento da string
-            
+        public static void calculoEntreDatas(string data)
+        {
+            Match match = Regex.Match(data, @"[0-3][0-9]/[0-1][0-9]/[0-9][0-9][0-9][0-9]");
+            if (match.Success)
+            {
+                Console.WriteLine("Funcionou!");
+            }
+            else
+            {
+                Console.WriteLine("Data Inválida!");
+            }
         }
-
+    }
+}
     }
 
     
