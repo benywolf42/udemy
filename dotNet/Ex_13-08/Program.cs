@@ -2,6 +2,7 @@
 // GUSTAVO DELGADO (SP1764489) - IFSP 2019
 
 using System;
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace dotNet
@@ -11,12 +12,12 @@ namespace dotNet
         static void Main(string[] args)
         {
             // calculaNotas(250.65);
-            // calculoEntreDatas("29/02/2016");
+            calculoEntreDatas(26022016);
             // maiorNumero(1,45);
             // isAnoBissexto();
             // calculoIMC(86, 1.75);
             // listagemDDDs();
-            calculadora();
+            // calculadora();
         }
 
         // QUESTAO 1
@@ -44,42 +45,24 @@ namespace dotNet
             
         }
         // QUESTAO 2
-        public static void calculoEntreDatas(string dataInicial)
+        public static void calculoEntreDatas(int dataInicial)
         {
-            Boolean isBissextoInicial = false;
-
-            Match matchInicial      = Regex.Match(dataInicial, @"[0-3][0-9]/[0-1][0-9]/[0-9][0-9][0-9][0-9]");
-            if (matchInicial.Success)
+            DateTime dt;
+            if (DateTime.TryParseExact(dataInicial.ToString(), "ddMMyyyy",
+                                      CultureInfo.InvariantCulture,
+                                      DateTimeStyles.None, out dt))
             {
-                int diaInicial = Convert.ToInt32(dataInicial.Substring(0,2));
-                int mesInicial = Convert.ToInt32(dataInicial.Substring(3,2));
-                int anoInicial = Convert.ToInt32(dataInicial.Substring(6,4));
-
-                // verificando se as datas informadas sao validas
-                if (anoInicial%4 == 0 & anoInicial%100 != 0) {
-                    isBissextoInicial = true;
-                } else if (anoInicial%400 == 0){
-                    isBissextoInicial = true;
-                }
-
-                if (mesInicial == 2 & diaInicial > 28){
-                    if (isBissextoInicial == false & diaInicial == 29 | diaInicial > 29){
-                        Console.WriteLine("Data inicial inválida!");
-                        return;
-                    }
-                }
-
-                string dataAtual = Convert.ToString(DateTime.Today);
-                int diaAtual = Convert.ToInt32(dataAtual.Substring(0,2));
-                int mesAtual = Convert.ToInt32(dataAtual.Substring(3,2));
-                int anoAtual = Convert.ToInt32(dataAtual.Substring(6,4));
-
-
+                Console.WriteLine(dt);
             }
-            else
-            {
-                Console.WriteLine("Data Inválida!");
-            }
+            DateTime dataAtual = DateTime.Now;
+
+            double diferencaDias = (dataAtual - dt).TotalDays;
+            double diferencaHoras = (dataAtual - dt).TotalHours;
+            double diferencaMinutos = (dataAtual - dt).TotalMinutes;
+            Console.WriteLine("A diferença aproximada entre a data informada e a atual:");
+            Console.WriteLine("Em dias: " + Math.Round(diferencaDias));
+            Console.WriteLine("Em horas: " + Math.Round(diferencaHoras));
+            Console.WriteLine("Em minutos: " + Math.Round(diferencaMinutos));
         }
         // QUESTAO 3
         public static void maiorNumero(double n1, double n2) {
