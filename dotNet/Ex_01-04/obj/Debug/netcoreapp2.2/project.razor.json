@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "c:\\repos\\dotNet\\Ex_01-04\\Ex_01-04.csproj",
+  "TargetFramework": "netcoreapp2.2",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
+}
