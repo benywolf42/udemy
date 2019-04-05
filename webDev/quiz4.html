@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form quiz</title>
+</head>
+<body>  
+    <h1>Register</h1>
+    <form>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" placeholder="John" required>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" placeholder="Smith" required></br>
+        <label for="male">Male</label>
+        <input id="male" type="radio" name="gender" required>
+        <label for="female">Female</label>
+        <input id="female" type="radio" name="gender" required>
+        <label for="other">Other</label>
+        <input id="Other" type="radio" name="gender" required><br>
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" placeholder="your email" required>
+        <label for="password">Password</label>
+        <input id="password" type="password" pattern=".{5,10}" name="password" required title="5-10 characters"><br>
+        <label for="month">Birthday</label>
+        <select name="month" id="month" required>
+            <option selected disabled>Month</option>
+            <option value="01">January</option>
+            <option value="02">February</option>
+            <option value="03">March</option>
+        </select>
+        <select name="day" id="day" required>
+            <option selected disabled>Day</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+        </select>
+        <select name="Year" id="year" required>
+            <option selected disabled>Year</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+        </select><br>
+        I agree to the terms and conditions
+        <input type="checkbox" required><br>
+
+        <button>Submit</button>
+    </form>
+</body>
+</html>
