@@ -12,3 +12,8 @@ img {
     float: left;
     margin: 1.66%
 }
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
