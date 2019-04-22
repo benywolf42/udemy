@@ -1,0 +1,35 @@
+#content {
+    text-align: center;
+    padding-top: 25%;
+    color: white;
+    text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4),
+                 0px 8px 13px rgba(0, 0, 0, 0.1),
+                 0px 18px 23px rgba(0, 0, 0, 0.1);
+}
+
+html {
+    height: 100%;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 5em;
+}
+
+hr {
+    border-top: 1.5px solid white;
+    margin-left: 27%;
+    margin-right: 27%;
+}
+
+body {
+    background: url(/quiz10/img/IMG_0728.jpg);
+    background-size: cover;
+    font-family: Lato;
+}
+
+.bg-light {
+
+    background-color: white !important;
+
+}
