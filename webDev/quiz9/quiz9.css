@@ -1,0 +1,19 @@
+.flex {
+    display: flex;  flex-wrap: wrap;
+}
+
+body {
+    padding-top: 70px;
+}
+
+jumbotron {
+    text-align: center;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
