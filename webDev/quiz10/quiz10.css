@@ -23,7 +23,7 @@ hr {
 }
 
 body {
-    background: url(/quiz10/img/IMG_0728.jpg);
+    background: url(../quiz10/img/IMG_0728.jpg);
     background-size: cover;
     font-family: Lato;
 }
